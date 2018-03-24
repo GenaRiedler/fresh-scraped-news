@@ -1,0 +1,43 @@
+
+h1 {
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: 200;
+    font-size: 75px;
+    text-transform: uppercase;
+}
+
+h2.card-title {
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: darkslategrey;
+}
+
+p {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    background-image: url(./assets/rawpixel-com-585630-unsplash.jpg);
+    background-size: cover;
+}
+
+.card {
+    margin: 15px 0px 15px 0px;
+}
+
+.jumbotron {
+    background: none;
+    color: white;
+    padding-bottom: 15px;
+}
+.btn-primary {
+    margin-right: 10px;
+    background-color: rgb(49, 134, 113);
+
+}
+
+.btn-primary:hover {
+    background-color: rgb(24, 66, 56);
+
+}
