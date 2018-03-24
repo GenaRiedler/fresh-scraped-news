@@ -6,7 +6,6 @@ const fs = require("fs");
 //For handlebars
 var exphbs = require("express-handlebars");
 
-
 // For scraping
 const axios = require("axios");
 const cheerio = require("cheerio");
@@ -81,10 +80,10 @@ app.get("/scrape", function(req, res) {
     });
 });
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + './public/index.html'));
+});
 
-// app.get('/', function (req, res) {
-//   res.render('home');
-// });
 // A GET route for displaying the scraped headlines
 app.get("/headlines", function(req, res) {
     // Grab every document in the headlines collection
