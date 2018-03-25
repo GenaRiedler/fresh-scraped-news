@@ -82,9 +82,6 @@ app.get("/scrape", function(req, res) {
     });
 });
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + './public/index.html'));
-});
 
 // A GET route for displaying the scraped headlines
 app.get("/headlines", function(req, res) {
