@@ -1,0 +1,4 @@
+node_modules
+views
+.env
+.DS_Store

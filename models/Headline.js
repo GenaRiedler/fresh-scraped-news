@@ -13,7 +13,6 @@ var HeadlineSchema = new Schema({
     link: {
         type: String,
         required: true
-      
       },
     summary: {
         type: String,
