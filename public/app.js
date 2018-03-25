@@ -10,7 +10,7 @@ $.getJSON("/headlines", function(data) {
                                 '<h2 class="card-title" data-id=' + data[i]._id + '>' + data[i].title + '</h2>' +
                                 '<p class="card-text">' + data[i].summary + '</p>' +
                                 '<a href="http://www.sandiegouniontribune.com/' + data[i].link + '" class="btn btn-primary btn-sm">Read Article</a>' +
-                                '<button data-toggle="modal" data-target="#exampleModalCenter" id="notes-btn" class="btn btn-primary btn-sm" data-id=' + data[i]._id + '>Write a Note</button>' +
+                                '<button data-toggle="modal" data-target="#notes" id="notes-btn" class="btn btn-primary btn-sm" data-id=' + data[i]._id + '>Write a Note</button>' +
                             '</div>' +
                             '</div>' +
                         '</div>'
@@ -35,28 +35,26 @@ $.getJSON("/headlines", function(data) {
         console.log(data);
         // The title of the article
         $("#notes").append(
-                '<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">' +
                     '<div class="modal-dialog modal-dialog-centered" role="document">' +
                         '<div class="modal-content">' +
-                        '<div class="modal-header">' +
-                            '<h5 class="modal-title" id="exampleModalLongTitle">' + data.title + '</h5>' +
-                            '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
-                            '<span aria-hidden="true">&times;</span>' +
-                            '</button>' +
+                          '<div class="modal-header">' +
+                              '<h5 class="modal-title" id="exampleModalLongTitle">' + data.title + '</h5>' +
+                              '<button type="button" class="close close-notes" data-dismiss="modal" aria-label="Close">' +
+                              '<span aria-hidden="true">&times;</span>' +
+                              '</button>' +
+                          '</div>' +
+                          '<div class="modal-body">' + 
+                              '<input type="text" class="input-group form control" id="titleinput" name="title" placeholder="Your Name">' +
+                              '<textarea class="input-group form-control" id="bodyinput" name="body" placeholder="Your Comment"></textarea>' +
+                          '</div>' +
+                          '<div class="modal-footer">' +
+                              '<button type="button" class="btn btn-secondary btn-sm close-notes" data-dismiss="modal" >Close</button>' +
+                              '<button type="button" class="btn btn-primary btn-sm">Save changes</button>' +
+                          '</div>' +
                         '</div>' +
-                        '<div class="modal-body">' + 
-                            '<p>' + data.summary + '</p>' +
-                        '</div>' +
-                        '<div class="modal-footer">' +
-                            '<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>' +
-                            '<button type="button" class="btn btn-primary btn-sm">Save changes</button>' +
-                        '</div>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>');
+                    '</div>');
         
-        /*     "<h2>" + data.title + "</h2>");
-        // An input to enter a new title
+        /*// An input to enter a new title
         $("#notes").append("<input id='titleinput' name='title' >");
         // A textarea to add a new note body
         $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
@@ -72,7 +70,7 @@ $.getJSON("/headlines", function(data) {
         }
       });
   });
-  
+
   // When you click the savenote button
   $(document).on("click", "#savenote", function() {
     // Grab the id associated with the article from the submit button
@@ -101,4 +99,6 @@ $.getJSON("/headlines", function(data) {
     $("#titleinput").val("");
     $("#bodyinput").val("");
   });
+
+  
   
